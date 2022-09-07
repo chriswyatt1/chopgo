@@ -28,6 +28,7 @@ my $min_genes=10;
 my $max_genes=100000;
 my $infer=0;
 my $min_sig=0;
+my $verbose=0;
 
 GetOptions(	  "help" => \$helpFlag,
 		  'i=s' => \$input,
@@ -46,6 +47,7 @@ GetOptions(	  "help" => \$helpFlag,
 		  "min_genes_req=s" => \$min_genes,
 		  "max_genes_req=s" => \$max_genes,
 		  "min_signif" => \$min_sig,
+		  "verbose" => \$verbose,
     );
 
 
@@ -462,6 +464,12 @@ else {
 print  "Script completed\n\n";
 
 #TIDY UP , temporary files
-$input=~s/\-/\_/g;
-`rm -f ACTUAL_R_CODE BACKGROUND.forR R_CODE_TO_RUN output.ofthis.test $input\.converted $input\.R_GO_subs tmp_file Image.Rdata`;
+if ($verbose){
+
+}
+else{
+	#Delete intermediate files (default)
+	$input=~s/\-/\_/g;
+	`rm -f ACTUAL_R_CODE BACKGROUND.forR R_CODE_TO_RUN output.ofthis.test $input\.converted $input\.R_GO_subs tmp_file Image.Rdata`;
+}
 
