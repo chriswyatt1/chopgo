@@ -16,7 +16,7 @@ Using default parameters:
 
 This will run:
 
-`perl bin/ChopGO_VTS.pl -i data/Polybia_worker.txt -bg data/Polybia_background --GO_file data/DB_Polybia`
+`perl bin/ChopGO_VTS.pl -i data/Polybia_worker.txt -bg data/Polybia_background.txt --GO_file data/DB_Polybia.txt`
 
 2. To specify a specific *db*:database or *focal* *background* gene lists you would use the following:
 
