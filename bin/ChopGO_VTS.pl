@@ -324,7 +324,7 @@ foreach my $key ( keys %Gene_Go_Hash ){
     #BP
     print $outhandle3 "GOdata <- new(\"topGOdata\", ontology=\"BP\", allGenes=inGenes, annot=annFUN.gene2GO, gene2GO=Chop.gene2GO , nodeSize = $min_genes )\n";
     print $outhandle3 "resultFisher <- runTest(GOdata, algorithm = \"classic\", statistic = \"fisher\")\n";
-    print $outhandle3 "allRes_BP <- GenTable(GOdata, classicFisher = resultFisher,orderBy = \"classicFisher\", ranksOf = \"classicFisher\", topNodes = 50)\n";
+    print $outhandle3 "allRes_BP <- GenTable(GOdata, classicFisher = resultFisher,orderBy = \"classicFisher\", ranksOf = \"classicFisher\", topNodes = 50, numChar=1000)\n";
     foreach my $meths (@methods){
 	print $outhandle3 "allRes_BP\$",$meths,"<-p.adjust(allRes_BP\$classicFisher, method = \"",$meths,"\")\n";
     }
@@ -334,7 +334,7 @@ foreach my $key ( keys %Gene_Go_Hash ){
     #MF
     print $outhandle3 "GOdata <- new(\"topGOdata\", ontology=\"MF\", allGenes=inGenes, annot=annFUN.gene2GO, gene2GO=Chop.gene2GO , nodeSize = $min_genes)\n";
     print $outhandle3 "resultFisher <- runTest(GOdata, algorithm = \"classic\", statistic = \"fisher\")\n";
-    print $outhandle3 "allRes_MF <- GenTable(GOdata, classicFisher = resultFisher,orderBy = \"classicFisher\", ranksOf = \"classicFisher\", topNodes = 50)\n";
+    print $outhandle3 "allRes_MF <- GenTable(GOdata, classicFisher = resultFisher,orderBy = \"classicFisher\", ranksOf = \"classicFisher\", topNodes = 50, numChar=1000)\n";
     foreach my $meths (@methods){
 	print $outhandle3 "allRes_MF\$",$meths,"<-p.adjust(allRes_MF\$classicFisher, method = \"",$meths,"\")\n";
     }
@@ -344,7 +344,7 @@ foreach my $key ( keys %Gene_Go_Hash ){
     #CC
     print $outhandle3 "GOdata <- new(\"topGOdata\", ontology=\"CC\", allGenes=inGenes, annot=annFUN.gene2GO, gene2GO=Chop.gene2GO , nodeSize = $min_genes)\n";
     print $outhandle3 "resultFisher <- runTest(GOdata, algorithm = \"classic\", statistic = \"fisher\")\n";
-    print $outhandle3 "allRes_CC <- GenTable(GOdata, classicFisher = resultFisher,orderBy = \"classicFisher\", ranksOf = \"classicFisher\", topNodes = 50)\n";
+    print $outhandle3 "allRes_CC <- GenTable(GOdata, classicFisher = resultFisher,orderBy = \"classicFisher\", ranksOf = \"classicFisher\", topNodes = 50, numChar=1000)\n";
     foreach my $meths (@methods){
 	print $outhandle3 "allRes_CC\$",$meths,"<-p.adjust(allRes_CC\$classicFisher, method = \"",$meths,"\")\n";
     }
