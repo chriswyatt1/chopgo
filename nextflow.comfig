@@ -1,0 +1,14 @@
+manifest {
+  description = 'Running TopGo on non-model' 
+  author = 'Chris Wyatt'
+}
+
+profiles {
+  myriad {
+    includeConfig 'conf/myriad.config'
+  }
+  docker {
+    includeConfig 'conf/docker.config'
+  }
+}
+

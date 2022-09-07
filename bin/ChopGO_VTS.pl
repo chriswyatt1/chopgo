@@ -91,9 +91,7 @@ Pre-requisites:
     R 
 
 *** Questions: 
-    Chris Wyatt (chris.wyatt\@crg.eu)
-    Manuel Irimia (mirimia\@gmail.com)
-
+    Chris Wyatt (c dot wyatt at ucl.ac.uk)
 "
 }
 
