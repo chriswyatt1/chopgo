@@ -10,9 +10,13 @@ You need your database of gene to GO hits (from Goatee), then a list of your foc
 `nextflow run main.nf `
 
 Using default parameters:
---db '/path/to/database/folder' 
---focal '/path/to/focal/gene/list' 
---back '/path/to/background/gene/list'
+--db 'data/DB_Polybia' 
+--focal 'data/Polybia_worker.txt' 
+--back 'data/Polybia_background'
+
+This will run:
+
+`perl bin/ChopGO_VTS.pl -i data/Polybia_worker.txt -bg data/Polybia_background --GO_file data/DB_Polybia`
 
 2. To specify a specific *db*:database or *focal* *background* gene lists you would use the following:
 
