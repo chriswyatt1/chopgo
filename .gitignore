@@ -3,3 +3,8 @@ work
 .nextflow.log
 .nextflow*
 R_CODE_TO_RUN
+output.ofthis.test
+*txt.converted
+*R_GO_subs
+*results_ALL.tab
+*_results_ALL.tab.pdf
