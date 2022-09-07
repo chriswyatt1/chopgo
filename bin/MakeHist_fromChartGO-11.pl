@@ -23,6 +23,7 @@ $col_CC = "lightgrey";
 ### open input and output files
 open (I, $ARGV[0]) || die "Can't open the input file \"$ARGV[0]\"\n";
 $root=$ARGV[0];
+@small=split(/\./, $root);
 $out_file="$root\_$correction\_pval\-$correction\-$min_p.ALL.tab";
 open (O, ">$out_file") || die "Can't open the output file";
 
@@ -218,15 +219,17 @@ $plot_file="TopGO_Pval_barplot_"."$root.pdf";
 my $RCOMMAND="ACTUAL_R_CODE";
 open(my $out_Rcmds,   "> $RCOMMAND")  or die "error opening $RCOMMAND. $!";
 my $height=2+(8*$fract);
-print $out_Rcmds "pdf (\"$plot_file\", width=12, height=$height)\n";
+print $out_Rcmds "pdf (\"$plot_file\", width=10, height=$height)\n";
 print $out_Rcmds "par(las=2)\n";
 print $out_Rcmds "BP<-read.table(\"$out_file\", h\=T,sep=\"\t\")\n";
-print $out_Rcmds "par(mar=c(5,25,4,1)+.1)\n";
+print $out_Rcmds "par(mar=c(5,25,4,1)+.1 , las=1)\n";
 my @split_col=split("_", $ARGV[0]);
 
 my $palette_here=join ("\"\,\"", @cols);
 #my $Types=join(/","/, @cols);
-print $out_Rcmds "barplot(BP\$LogP.$type_p, names.arg = BP\$TERM, horiz=TRUE, xlab = \"log pvalues (correction=",$correction,")\", main= \"$root\", cex.main=2,  width = 1, col=c(\"$palette_here\"))\n";
+print $out_Rcmds "beee <- barplot(BP\$LogP.$type_p, names.arg = BP\$TERM, horiz=TRUE, xlab = \"log pvalues (correction=",$correction,")\", main= \"$small[0]\", cex.main=2, las=1,  width = 1, col=c(\"$palette_here\"))\n";
+
+print $out_Rcmds "text(3, beee, labels = BP\$GO, col=\"white\")\n";
 
 print $out_Rcmds "legend(\"bottomright\", title=\"GO Categories\", c(\"BP\",\"MF\",\"CC\"), ".
     "fill=c(\"$col_BP\", \"$col_MF\", \"$col_CC\"), horiz=TRUE, cex=0.8)\n";
